@@ -1,4 +1,4 @@
-const server_url = "http://localhost:3000";
+const server_url = "https://vedshort.onrender.com";
 const urlInput = document.getElementById("url-input");
 const msg = document.getElementById("form-message");
 const card = document.getElementById("saved-link-card");
