@@ -1,0 +1,5 @@
+node_modules
+dist
+.env
+security-audit*
+SECURITY_AUDIT.md

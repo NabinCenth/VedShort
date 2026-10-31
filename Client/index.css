@@ -1,0 +1,375 @@
+:root {
+  color-scheme: light;
+  --color-ink: #000;
+  --color-paper: #f4f4f0;
+  --color-surface: #fff;
+  --color-accent: #ffd23f;
+  --border-strong: 3px solid var(--color-ink);
+  --shadow-control: 4px 4px 0 var(--color-ink);
+  --shadow-panel: 5px 5px 0 var(--color-ink);
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  color: var(--color-ink);
+  background: var(--color-paper);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  min-width: 320px;
+  margin: 0;
+}
+
+header,
+main {
+  width: min(100% - 3rem, 68rem);
+  margin-inline: auto;
+}
+
+header {
+  padding-block: clamp(1.5rem, 4vw, 2.75rem);
+  border-bottom: var(--border-strong);
+}
+
+header h1 {
+  margin: 0;
+  color: var(--color-ink);
+  font-family: "Syne", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(15rem, 0.8fr);
+  gap: clamp(2.5rem, 8vw, 7rem);
+  padding-block: clamp(2rem, 6vw, 5rem);
+}
+
+.shortener {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: clamp(2.75rem, 6vw, 4.5rem);
+}
+
+main > section,
+.shortener > section {
+  min-width: 0;
+}
+
+main h1 {
+  margin: 0 0 1.5rem;
+  font-family: "Syne", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+main h2 {
+  margin: 0 0 1.25rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+label {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+input,
+button {
+  min-height: 3rem;
+  border: var(--border-strong);
+  border-radius: 0;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  min-width: 0;
+  padding: 0.7rem 0.85rem;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-control);
+}
+
+input::placeholder {
+  color: #5b5b56;
+}
+
+button {
+  padding: 0.7rem 1.1rem;
+  color: var(--color-ink);
+  background: var(--color-accent);
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: var(--shadow-control);
+}
+
+button:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+input:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 4px;
+}
+
+.saved-links,
+main > section[aria-labelledby="how-to-heading"] {
+  align-self: start;
+  padding: 1.5rem;
+  border: var(--border-strong);
+  background: var(--color-accent);
+  box-shadow: var(--shadow-panel);
+}
+
+.saved-links__heading {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.saved-links__heading h2 {
+  margin: 0;
+}
+
+/* Hide heading when link card is hidden (e.g. during errors) */
+.saved-links:has(#saved-link-card[hidden]) .saved-links__heading {
+  display: none;
+}
+
+/* Hide the entire saved-links section if card is hidden and there is no message */
+.saved-links[hidden],
+.saved-links:has(#saved-link-card[hidden]):not(:has(.form-message:not(:empty))) {
+  display: none;
+}
+
+.saved-links__tag {
+  flex: none;
+  padding: 0.3rem 0.55rem;
+  border: 2px solid var(--color-ink);
+  background: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.clear-links {
+  min-height: 2.25rem;
+  padding: 0.35rem 0.55rem;
+  font-size: 0.8rem;
+  box-shadow: 2px 2px 0 var(--color-ink);
+}
+
+.clear-links:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.saved-links__empty,
+.form-message {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.form-message {
+  margin-top: 1.25rem;
+}
+
+.form-message:empty {
+  display: none;
+}
+
+.form-message[data-kind="error"] {
+  color: #8d1c12;
+  font-weight: 700;
+}
+
+.form-message[data-kind="success"] {
+  font-weight: 700;
+}
+
+.saved-links__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.saved-link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: 1rem;
+  border: var(--border-strong);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-control);
+}
+
+.saved-link__content {
+  min-width: 0;
+}
+
+.saved-link__destination {
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-ink);
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.saved-link__result {
+  display: block;
+  margin-top: 0.45rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  color: var(--color-ink);
+}
+
+.saved-link__copy {
+  width: auto;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.7rem;
+  box-shadow: 2px 2px 0 var(--color-ink);
+}
+
+.saved-link__copy:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+button:disabled {
+  cursor: wait;
+}
+
+ol {
+  margin: 0;
+  padding-left: 1.35rem;
+  line-height: 1.7;
+}
+
+li + li {
+  margin-top: 0.65rem;
+}
+
+footer {
+  display: flex;
+  width: min(100% - 3rem, 68rem);
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding-block: 1rem 1.5rem;
+  border-top: var(--border-strong);
+}
+
+.copyright {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.github-link {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.5rem 0.75rem;
+  border: var(--border-strong);
+  color: var(--color-ink);
+  background: var(--color-accent);
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: var(--shadow-control);
+}
+
+.github-link:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+.github-link:focus-visible {
+  outline: 3px solid var(--color-ink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 640px) {
+  header,
+  main {
+    width: min(100% - 2rem, 34rem);
+  }
+
+  main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+    padding-block: 2rem;
+  }
+
+  footer {
+    width: min(100% - 2rem, 34rem);
+  }
+
+  form {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  label {
+    grid-column: auto;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .saved-links,
+  main > section[aria-labelledby="how-to-heading"] {
+    padding: 1.25rem;
+  }
+
+  .saved-link {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .saved-link__copy {
+    width: 100%;
+  }
+
+  .shortener {
+    gap: 2.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VedShort</title>
+  <meta name="api-base-url" content="http://localhost:3000" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@700&family=Syne:wght@800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+  <header>
+    <h1>VedShort</h1>
+  </header>
+
+  <main>
+    <div class="shortener">
+      <section aria-labelledby="shorten-heading">
+        <h1 id="shorten-heading">Shorten a URL</h1>
+        <form id="shorten-form">
+          <label for="url-input">Enter a URL</label>
+          <input id="url-input" name="url" type="url" placeholder="https://example.com/your-long-link"
+            autocomplete="url" required />
+          <button id="shorten-button" type="submit">Shorten URL</button>
+        </form>
+
+      </section>
+
+      <section class="saved-links" aria-labelledby="saved-links-heading">
+        <div class="saved-links__heading">
+          <h2 id="saved-links-heading">Your short link</h2>
+        </div>
+        <article class="saved-link" id="saved-link-card" aria-label="Short link result" hidden>
+          <div class="saved-link__content">
+            <a class="saved-link__result" id="saved-link-result" href="#"
+              target="_blank" rel="noopener noreferrer"></a>
+          </div>
+          <button class="saved-link__copy" id="copy-link-button" type="button">Copy link</button>
+        </article>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </section>
+    </div>
+
+    <section aria-labelledby="how-to-heading">
+      <h2 id="how-to-heading">How to use</h2>
+      <ol>
+        <li>Paste the destination URL into the field above.</li>
+        <li>Select “Shorten URL”.</li>
+        <li>Copy the short link from the result card.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p class="copyright">© 2026 VedShort</p>
+    <a class="github-link" href="https://github.com/NabinCenth" target="_blank" rel="noopener noreferrer"
+      aria-label="Visit NabinCenth on GitHub">
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+        <path
+          d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.56.1.76-.24.76-.54v-2.08c-3.1.67-3.76-1.32-3.76-1.32-.5-1.28-1.24-1.62-1.24-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 .1.72 2.03 3.4 1.4.1-.72.39-1.2.7-1.48-2.48-.28-5.08-1.24-5.08-5.52 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.06 1.14a10.65 10.65 0 0 1 5.57 0c2.12-1.44 3.05-1.14 3.05-1.14.61 1.53.23 2.67.11 2.95.72.78 1.15 1.77 1.15 2.99 0 4.29-2.61 5.23-5.1 5.51.4.35.75 1.03.75 2.08v3.08c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z" />
+      </svg>
+      <span>GitHub</span>
+    </a>
+  </footer>
+  <script src="index.js" defer type="module"></script>
+</body>
+
+</html>

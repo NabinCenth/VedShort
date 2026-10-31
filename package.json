@@ -1,0 +1,19 @@
+{
+  "name": "vedshort",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "Url-Shortner"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "VedShort"
+  },
+  "license": "ISC",
+  "author": "Bed Prasad Pokharel",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
