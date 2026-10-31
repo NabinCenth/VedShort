@@ -62,8 +62,8 @@ main {
   gap: clamp(2.75rem, 6vw, 4.5rem);
 }
 
-main > section,
-.shortener > section {
+main>section,
+.shortener>section {
   min-width: 0;
 }
 
@@ -139,7 +139,7 @@ button:focus-visible {
 }
 
 .saved-links,
-main > section[aria-labelledby="how-to-heading"] {
+.sidebar-guide > section {
   align-self: start;
   padding: 1.5rem;
   border: var(--border-strong);
@@ -266,6 +266,116 @@ main > section[aria-labelledby="how-to-heading"] {
   box-shadow: none;
 }
 
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.feature-card {
+  min-width: 0;
+  padding: 1.25rem;
+  border: var(--border-strong);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-control);
+}
+
+.feature-card h3 {
+  margin: 0 0 0.65rem;
+  font-family: "Outfit", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.feature-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.faq-list {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.faq-item {
+  min-width: 0;
+  border: var(--border-strong);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-control);
+}
+
+.faq-question {
+  display: flex;
+  min-height: 3.5rem;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-question::-webkit-details-marker {
+  display: none;
+}
+
+.faq-question::after {
+  flex: none;
+  font-size: 1.35rem;
+  line-height: 1;
+  content: "+";
+}
+
+.faq-item[open] .faq-question {
+  background: var(--color-accent);
+}
+
+.faq-item[open] .faq-question::after {
+  content: "−";
+}
+
+.faq-question:focus-visible {
+  position: relative;
+  z-index: 1;
+  outline: 3px solid var(--color-ink);
+  outline-offset: -6px;
+}
+
+.faq-answer {
+  padding: 0.9rem 1rem 1rem;
+  border-top: var(--border-strong);
+  line-height: 1.65;
+}
+
+.faq-answer p {
+  margin: 0;
+}
+
+.sidebar-guide {
+  display: grid;
+  align-content: start;
+  gap: 1.75rem;
+}
+
+.sidebar-guide .quick-facts {
+  background: var(--color-surface);
+}
+
+.facts-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  line-height: 1.6;
+}
+
+.facts-list li + li {
+  margin-top: 0.8rem;
+  padding-top: 0.8rem;
+  border-top: 2px solid var(--color-ink);
+}
+
 button:disabled {
   cursor: wait;
 }
@@ -276,7 +386,7 @@ ol {
   line-height: 1.7;
 }
 
-li + li {
+li+li {
   margin-top: 0.65rem;
 }
 
@@ -321,6 +431,7 @@ footer {
 }
 
 @media (max-width: 640px) {
+
   header,
   main {
     width: min(100% - 2rem, 34rem);
@@ -349,8 +460,12 @@ footer {
   }
 
   .saved-links,
-  main > section[aria-labelledby="how-to-heading"] {
+  .sidebar-guide > section {
     padding: 1.25rem;
+  }
+
+  .features-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .saved-link {
@@ -367,6 +482,7 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   *,
   *::before,
   *::after {

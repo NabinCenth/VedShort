@@ -4,14 +4,141 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VedShort</title>
-  <meta name="api-base-url" content="http://localhost:3000" />
+
+  <!-- Primary Meta Tags -->
+  <title>VedShort — Fast, Free &amp; Minimalist URL Shortener</title>
+  <meta name="title" content="VedShort — Fast, Free &amp; Minimalist URL Shortener" />
+  <meta name="description" content="Shorten long links instantly with VedShort. Clean, reliable, and privacy-focused short URLs with lightning-fast 301 redirects and zero bloat." />
+  <meta name="keywords" content="url shortener, link shortener, shorten url, free url shortener, vedshort, short link generator, fast redirects, clean links" />
+  <meta name="author" content="VedShort / NabinCenth" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+  <link rel="canonical" href="https://vedshort.netlify.app/" />
+  <meta name="theme-color" content="#ffd23f" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://vedshort.netlify.app/" />
+  <meta property="og:title" content="VedShort — Fast, Free &amp; Minimalist URL Shortener" />
+  <meta property="og:description" content="Generate compact, high-speed redirect links in seconds with VedShort. No registration required, 100% free." />
+  <meta property="og:site_name" content="VedShort" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="VedShort — Fast, Free &amp; Minimalist URL Shortener" />
+  <meta name="twitter:description" content="Generate compact, high-speed redirect links in seconds with VedShort. No registration required, 100% free." />
+
+  <!-- API Endpoint Configuration -->
+  <meta name="api-base-url" content="https://vedshort.netlify.app/" />
+
+  <!-- Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Outfit:wght@700&family=Syne:wght@800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&family=Syne:wght@700;800&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
+
+  <!-- Structured Data: WebApplication, FAQPage, HowTo & Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://vedshort.netlify.app/#webapp",
+        "name": "VedShort",
+        "url": "https://vedshort.netlify.app/",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All",
+        "description": "VedShort is a minimalist, high-speed URL shortener that converts long, cumbersome links into clean, shareable URLs.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "Instant URL shortening",
+          "Fast 301 redirects",
+          "Neobrutalism user interface",
+          "One-click clipboard copy"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://vedshort.netlify.app/#org",
+        "name": "VedShort",
+        "url": "https://vedshort.netlify.app/",
+        "sameAs": [
+          "https://github.com/NabinCenth"
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "@id": "https://vedshort.netlify.app/#howto",
+        "name": "How to shorten a URL with VedShort",
+        "description": "Step-by-step instructions to shorten any destination URL into a compact redirect link.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Paste URL",
+            "text": "Paste your long destination URL into the input field."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Shorten URL",
+            "text": "Click the Shorten URL button to generate a unique short identifier."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Copy Link",
+            "text": "Click Copy link from the result card to copy the new URL directly to your clipboard."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vedshort.netlify.app/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is VedShort?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "VedShort is a fast, free, and minimalist URL shortener designed to convert long, unwieldy web links into compact, shareable short URLs with lightning-fast 301 redirects."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is VedShort free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, VedShort is 100% free with no account registration, subscriptions, or hidden charges required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does a URL shortener work?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A URL shortener generates a unique short code that permanently maps to your original destination URL. When visitors open the short link, the server immediately redirects them using an HTTP 301 permanent redirect."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why should I shorten my URLs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Shortened links are cleaner to share in messages, social media posts, emails, and print materials, preventing broken links caused by complex query parameters."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -22,9 +149,13 @@
   <main>
     <div class="shortener">
       <section aria-labelledby="shorten-heading">
-        <h1 id="shorten-heading">Shorten a URL</h1>
+        <h1 id="shorten-heading">Fast, Free URL Shortener</h1>
+        <p class="hero-lede">
+          VedShort transforms lengthy web links into clean, compact, and instant-redirecting short URLs. Zero sign-up required.
+        </p>
+
         <form id="shorten-form">
-          <label for="url-input">Enter a URL</label>
+          <label for="url-input">Enter destination URL</label>
           <input id="url-input" name="url" type="url" placeholder="https://example.com/your-long-link"
             autocomplete="url" required />
           <button id="shorten-button" type="submit">Shorten URL</button>
@@ -45,20 +176,88 @@
         </article>
         <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
       </section>
+
+      <!-- Features / Content Quality (GEO / E-E-A-T signals) -->
+      <section class="features-section" aria-labelledby="features-heading">
+        <h2 id="features-heading">Why choose VedShort?</h2>
+        <div class="features-grid">
+          <article class="feature-card">
+            <h3>Lightning Fast</h3>
+            <p>Direct HTTP 301 redirects ensure your visitors reach their destination with near-zero latency.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Clean &amp; Minimal</h3>
+            <p>No ad interruptions, interstitial countdowns, or clutter. Just quick, dependable link conversion.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Privacy First</h3>
+            <p>We do not collect intrusive tracking profiles or sell user data. Your destination URLs remain intact.</p>
+          </article>
+          <article class="feature-card">
+            <h3>100% Free Forever</h3>
+            <p>Generate as many short links as you need with zero paywalls or mandatory account signups.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- AEO & Voice Search / FAQ Section -->
+      <section class="faq-section" aria-labelledby="faq-heading">
+        <h2 id="faq-heading">Frequently Asked Questions</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary class="faq-question">What is VedShort?</summary>
+            <div class="faq-answer">
+              <p>VedShort is a fast, free, and minimalist URL shortener designed to convert long, unwieldy web links into compact, shareable short URLs with lightning-fast 301 redirects.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Is VedShort free to use?</summary>
+            <div class="faq-answer">
+              <p>Yes, VedShort is 100% free with no account registration, subscriptions, or hidden charges required.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">How does URL shortening work?</summary>
+            <div class="faq-answer">
+              <p>When you submit a long URL, VedShort assigns a compact alphanumeric key stored in the database. When a visitor requests that key, our server sends a 301 permanent redirect header guiding the browser straight to your destination.</p>
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-question">Why should I shorten my URLs?</summary>
+            <div class="faq-answer">
+              <p>Shortened links are cleaner to share across SMS, social media (X, LinkedIn, Instagram), emails, and printed media, avoiding broken links caused by wrapped text and complex tracking parameters.</p>
+            </div>
+          </details>
+        </div>
+      </section>
     </div>
 
-    <section aria-labelledby="how-to-heading">
-      <h2 id="how-to-heading">How to use</h2>
-      <ol>
-        <li>Paste the destination URL into the field above.</li>
-        <li>Select “Shorten URL”.</li>
-        <li>Copy the short link from the result card.</li>
-      </ol>
-    </section>
+    <aside class="sidebar-guide">
+      <section aria-labelledby="how-to-heading">
+        <h2 id="how-to-heading">How to use</h2>
+        <ol>
+          <li>Paste the destination URL into the field above.</li>
+          <li>Select “Shorten URL”.</li>
+          <li>Copy the short link from the result card.</li>
+        </ol>
+      </section>
+
+      <section class="quick-facts" aria-labelledby="quick-facts-heading">
+        <h2 id="quick-facts-heading">Quick Facts</h2>
+        <ul class="facts-list">
+          <li><strong>Redirect Speed:</strong> Sub-50ms server response</li>
+          <li><strong>Link Expiration:</strong> Permanent links</li>
+          <li><strong>Security:</strong> Safe destination validation</li>
+        </ul>
+      </section>
+    </aside>
   </main>
 
   <footer>
-    <p class="copyright">© 2026 VedShort</p>
+    <p class="copyright">© 2026 VedShort. All rights reserved.</p>
     <a class="github-link" href="https://github.com/NabinCenth" target="_blank" rel="noopener noreferrer"
       aria-label="Visit NabinCenth on GitHub">
       <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
