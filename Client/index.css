@@ -127,6 +127,28 @@ button {
   box-shadow: var(--shadow-control);
 }
 
+.button-spinner {
+  display: inline-block;
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-inline-end: 0.55rem;
+  border: 2px solid currentColor;
+  border-left-color: transparent;
+  border-radius: 50%;
+  vertical-align: -0.1em;
+  animation: shorten-spinner-rotation 0.7s linear infinite;
+}
+
+.button-spinner[hidden] {
+  display: none;
+}
+
+@keyframes shorten-spinner-rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 button:active {
   transform: translate(4px, 4px);
   box-shadow: none;
@@ -482,6 +504,10 @@ footer {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+  .button-spinner {
+    animation: none;
+  }
 
   *,
   *::before,

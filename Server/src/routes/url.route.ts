@@ -1,10 +1,12 @@
 import express from "express";
 import pool from "../db/dbconfig.js";
 import  codegen from "../utils/gencode.js";
-
+import rateLimit from "express-rate-limit";
+const shortenLimiter = rateLimit({ windowMs: 60_000, limit: 10 });
+const redirectLimiter = rateLimit({ windowMs: 60_000, limit: 50 });
 const router = express.Router();
 // Post Req 
-router.post("/shorten", async (req, res) => {
+router.post("/shorten", shortenLimiter, async (req, res) => {
   const randomString=codegen();
   console.log("response body",req.body.org_url);
   if (!req.body.org_url) {
@@ -45,11 +47,11 @@ router.post("/shorten", async (req, res) => {
 });
 
 //Get Req
-router.get("/:short_id",async(req,res)=>{
+router.get("/:short_id", redirectLimiter, async(req,res)=>{
 const id = req.params.short_id;
 try{
  const org_url =await pool.query("SELECT org_url FROM links WHERE short_id =$1",[id]);
-
+res.set("Cache-Control", "public, max-age=86400");
 res.redirect(301,org_url.rows[0]?.org_url);
 }
 catch(err){

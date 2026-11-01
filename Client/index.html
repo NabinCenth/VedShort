@@ -157,7 +157,10 @@
           <label for="url-input">Enter destination URL</label>
           <input id="url-input" name="url" type="url" placeholder="https://example.com/your-long-link"
             autocomplete="url" required />
-          <button id="shorten-button" type="submit">Shorten URL</button>
+          <button id="shorten-button" type="submit">
+            <span id="shorten-spinner" class="button-spinner" aria-hidden="true" hidden></span>
+            Shorten URL
+          </button>
         </form>
 
       </section>

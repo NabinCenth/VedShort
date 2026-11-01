@@ -1,12 +1,22 @@
 const server_url = "https://vedshort.onrender.com";
+// const server_url ="http://localhost:3000"
 const urlInput = document.getElementById("url-input");
 const msg = document.getElementById("form-message");
 const card = document.getElementById("saved-link-card");
 const linkEl = document.getElementById("saved-link-result");
 const copyBtn = document.getElementById("copy-link-button");
-
+const shortenButton = document.getElementById("shorten-button");
+const shortenSpinner = document.getElementById("shorten-spinner");
+let loading = false;
 const sendData = async () => {
   try {
+     if (loading) return;
+  if (!urlInput.value.trim()) return;
+    loading = true;
+    shortenButton.disabled = loading;
+    shortenButton.setAttribute("aria-busy", String(loading));
+    shortenSpinner.hidden = !loading;
+
     const payload = {
       org_url: urlInput.value
     };
@@ -34,6 +44,12 @@ const sendData = async () => {
     msg.textContent = "Something went wrong. Is the server running?";
     msg.setAttribute("data-kind", "error");
   }
+  finally {
+    loading = false;
+    shortenButton.disabled = loading;
+    shortenButton.setAttribute("aria-busy", String(loading));
+    shortenSpinner.hidden = !loading;
+  }
 };
 
 // Copy button
@@ -47,7 +63,7 @@ copyBtn.addEventListener("click", () => {
   });
 });
 
-document.getElementById("shorten-button").addEventListener("click", (e) => {
+shortenButton.addEventListener("click", (e) => {
   e.preventDefault();
   sendData();
 });
